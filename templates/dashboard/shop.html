@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop</title>
+</head>
+<body>
+    {% for object in objects %}
+        {% if object.age == "29" %}
+    <br> {{ object.name | lower }}
+        {% endif %}
+    {% endfor %}
+</body>
+</html>

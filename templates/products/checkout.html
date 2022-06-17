@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+    <!-- Shopping Cart Section Begin -->
+    <section class="checkout-section spad">
+        <div class="container">
+            <form method="POST" class="checkout-form">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <label for="street">Apartment Address<span>*</span></label>
+                                {{ form.apartment_address }}
+                            </div>
+                            <div class="col-lg-12">
+                                <label for="street">Street Address<span>*</span></label>
+                                {{ form.street_address }}
+                            </div>
+                            <div class="col-lg-12">
+                                <label for="cun">Country<span>*</span></label>
+                                {{ form.country }}
+                            </div>
+                            <div class="col-lg-12">
+                                <label for="zip">Postcode / ZIP (optional)</label>
+                                {{ form.zip }}
+                            </div>
+                            <div class="col-lg-12">
+                                <label for="street">payment Option<span>*</span></label>
+                                {{ form.payment_option }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+<!--                        <div class="checkout-content">-->
+<!--                            <input type="text" placeholder="Enter Your Coupon Code">-->
+<!--                        </div>-->
+                        <div class="place-order">
+<!--                            <h4>Your Order</h4>-->
+                            <div class="order-total">
+<!--                                <ul class="order-table">-->
+<!--                                    <li>Product <span>Total</span></li>-->
+<!--                                    <li class="fw-normal">Combination x 1 <span>$60.00</span></li>-->
+<!--                                    <li class="fw-normal">Combination x 1 <span>$60.00</span></li>-->
+<!--                                    <li class="fw-normal">Combination x 1 <span>$120.00</span></li>-->
+<!--                                    <li class="fw-normal">Subtotal <span>$240.00</span></li>-->
+<!--                                    <li class="total-price">Total <span>$240.00</span></li>-->
+<!--                                </ul>-->
+<!--                                <div class="payment-check">-->
+<!--                                    <div class="pc-item">-->
+<!--                                        <label for="pc-check">-->
+<!--                                            Cheque Payment-->
+<!--                                            <input type="checkbox" id="pc-check">-->
+<!--                                            <span class="checkmark"></span>-->
+<!--                                        </label>-->
+<!--                                    </div>-->
+<!--                                    <div class="pc-item">-->
+<!--                                        <label for="pc-paypal">-->
+<!--                                            Paypal-->
+<!--                                            <input type="checkbox" id="pc-paypal">-->
+<!--                                            <span class="checkmark"></span>-->
+<!--                                        </label>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+                                <div class="order-btn">
+                                    <input type="submit" class="site-btn place-btn" value="Place Order">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <!-- Shopping Cart Section End -->
+
+{% endblock %}

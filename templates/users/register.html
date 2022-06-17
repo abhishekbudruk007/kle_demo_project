@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+    <!-- Register Section Begin -->
+    <div class="register-login-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="register-form">
+                        <h2>Register</h2>
+                        <form name="registration_form" action="{% url 'users:register' %}" method="post" enctype="multipart/form-data" onsubmit="return validate()">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+<!--                            <div class="group-input">-->
+<!--                                <label for="username">{{ form.username.label }} *</label>-->
+<!--                                {{ form.username }}-->
+<!--                            </div>-->
+<!--                            <div class="group-input">-->
+<!--                                <label for="username">{{ form.password.label }} *</label>-->
+<!--                                {{ form.password }}-->
+<!--                            </div>-->
+<!--                            <div class="group-input">-->
+<!--                                <label for="con-pass">Confirm Password *</label>-->
+<!--                                <input type="text" id="con-pass">-->
+<!--                            </div>-->
+                            <input type="submit" class="site-btn register-btn">REGISTER</input>
+                        </form>
+                        <div class="switch-login">
+                            <a href="./login.html" class="or-login">Or Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Register Form Section End -->
+{% endblock %}
+
+{% block custom_js %}
+<script>
+    function validate(){
+        password1 = document.forms["registration_form"]["password1"].value;
+        password2 = document.forms["registration_form"]["password2"].value;
+        console.log(password1, password2);
+        if(password1 != password2)
+        {
+            window.alert("Both Passwords are not matching");
+            return False
+        }
+        return True
+    }
+</script>
+{% endblock %}

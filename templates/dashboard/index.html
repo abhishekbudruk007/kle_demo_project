@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+<!-- Banner Section Begin -->
+
+
+
+
+    <!-- Man Banner Section Begin -->
+    <section class="man-banner spad">
+        <div class="container-fluid">
+            <div class="row">
+                {% for product in products %}
+                    <div class="col-lg-4">
+                        <div class="product-item">
+                            <div class="pi-pic">
+                                <img src="{{ product.product_photo.url }}" alt="">
+                                <a href="{% url 'products:add_to_wishlist' product.id %}">
+                                    <div class="icon">
+                                        <i class="icon_heart_alt"></i>
+                                    </div>
+                                </a>
+                                <ul>
+                                    <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
+                                    <li class="quick-view"><a href="{% url 'products:product_detail_view' product.id %}">Quick View</a></li>
+                                </ul>
+                            </div>
+                            <div class="pi-text">
+                                <div class="catagory-name">
+                                    {% if product.product_type == "V" %}
+                                        <h5>Vegetable</h5>
+                                    {% else %}
+                                        <h5>Fruit</h5>
+                                    {% endif %}</div>
+                                <a href="#">
+                                    <h5>{{ product.product_name }}</h5>
+                                </a>
+                                <div class="product-price">
+                                    {{ product.product_price }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- Man Banner Section End -->
+{% endblock %}
